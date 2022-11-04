@@ -1,8 +1,28 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  box-sizing: border-box;
 }
-
-a {
-  color: #00B7FF;
+.container {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+}
+button {
+  margin: 10px 0;
+}
+span.fav {
+  margin-right: 20px;
+}
+p.fav {
+  display: none;
+}
+textarea {
+  margin: 20px 0;
+}
+p.comment {
+  width: 100%;
+  padding: 0 20px;
 }
