@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var pokemonRouter = require('./routes/pokemon');
 
 var app = express();
 
@@ -20,12 +20,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/pokemon', pokemonRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+
+// Connect to MongoDB
+const mongoose = require('mongoose');
+mongoose
+    .connect("mongodb+srv://w_alami:Alamibaacinfo1@cluster0.8nroh.mongodb.net/?retryWrites=true&w=majority")
+    .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.log('Could not connect to MongoDB', err));
 
 // error handler
 app.use(function(err, req, res, next) {
